@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>電話番号入力デモ</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      font-family: sans-serif;
+    }
+    input[type="text"] {
+      width: 200px;
+      padding: 5px;
+      font-size: 14px;
+      text-align: center;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 15px;
+      font-size: 14px;
+    }
+    .message {
+      margin-top: 10px;
+      color: red;
+    }
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>電話番号を入力してください。</p>
+    <input type="text" id="phone" placeholder="080-1234-5678" maxlength="13">
+    <br>
+    <button id="submit">送信</button>
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    document.getElementById("submit").addEventListener("click", function() {
+      const phone = document.getElementById("phone").value;
+      const message = document.getElementById("message");
+      const regex = /^\d{3}-\d{4}-\d{4}$/;
+
+      if (regex.test(phone)) {
+        message.textContent = "SMSを送信しました。";
+        message.className = "message success";
+      } else {
+        message.textContent = "電話番号の形式が不正です。";
+        message.className = "message";
+      }
+    });
+  </script>
+</body>
+</html>
