@@ -45,6 +45,32 @@ jobs:
           pip install playwright beautifulsoup4 lxml
           python -m playwright install --with-deps chromium
 
+      - name: Apply direct Carsensor query parameters
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('carsensor-temp/scan.py')
+          source = path.read_text(encoding='utf-8')
+          start = source.index('async def configure(page: Page, url: str) -> dict[str, Any]:')
+          end = source.index('\n\nasync def result_urls', start)
+          replacement = '''async def configure(page: Page, url: str) -> dict[str, Any]:
+              query = "PMAX=1000000&SMAX=50000&HMIN=1000&SZAN=12&FUEL=1&OPTCD=SMK1&OPTCD=BMF1"
+              search_url = f"{url}?{query}"
+              await page.goto(search_url, wait_until="domcontentloaded", timeout=90000)
+              await page.wait_for_timeout(1800)
+              body = await page.locator("body").inner_text()
+              counts = [int(x.replace(",", "")) for x in re.findall(r"([0-9][0-9,]*)台", body)]
+              return {
+                  "ok": True,
+                  "url": page.url,
+                  "direct_query": query,
+                  "count": min(counts) if counts else None,
+              }
+          '''
+          path.write_text(source[:start] + replacement + source[end:], encoding='utf-8')
+          PY
+
       - name: Run live scan
         run: |
           cd carsensor-temp
