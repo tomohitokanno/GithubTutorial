@@ -1,0 +1,316 @@
+{
+  "scanned_at": "2026-07-26T18:16:34.913958+09:00",
+  "fatal": true,
+  "criteria": {
+    "prefectures": [
+      "東京",
+      "千葉",
+      "埼玉",
+      "神奈川",
+      "茨城"
+    ],
+    "detail_concurrency": 3,
+    "body_price_max_man": 100,
+    "mileage_max_10k_km": 5.0,
+    "displacement_min_cc": 1000,
+    "engine": "ガソリン",
+    "back_camera": true,
+    "smart_key": true,
+    "inspection_min_ym": [
+      2027,
+      8
+    ],
+    "requested_at": "2026-07-26T21:00:00+09:00"
+  },
+  "searches": [
+    {
+      "prefecture": "東京",
+      "setup": {
+        "ok": false,
+        "url": "https://www.carsensor.net/usedcar/tokyo/index.html",
+        "steps": [
+          {
+            "ok": true,
+            "context": "走行距離",
+            "name": "SMAX",
+            "label": "5万Km",
+            "value": "50000"
+          },
+          {
+            "ok": false,
+            "context": "価格",
+            "reason": "not_found"
+          },
+          {
+            "ok": true,
+            "context": "排気量",
+            "name": "HMIN",
+            "label": "1000",
+            "value": "1000"
+          },
+          {
+            "ok": true,
+            "context": "車検残",
+            "name": "SZAN",
+            "label": "１年以上",
+            "value": "12"
+          },
+          {
+            "ok": true,
+            "label": "ガソリン",
+            "name": "FUEL",
+            "value": "1",
+            "checked": true
+          },
+          {
+            "ok": true,
+            "label": "スマートキー",
+            "name": "OPTCD",
+            "value": "SMK1",
+            "checked": true
+          },
+          {
+            "ok": true,
+            "label": "バックカメラ",
+            "name": "OPTCD",
+            "value": "BMF1",
+            "checked": true
+          }
+        ]
+      },
+      "pages": []
+    },
+    {
+      "prefecture": "千葉",
+      "setup": {
+        "ok": false,
+        "url": "https://www.carsensor.net/usedcar/chiba/index.html",
+        "steps": [
+          {
+            "ok": true,
+            "context": "走行距離",
+            "name": "SMAX",
+            "label": "5万Km",
+            "value": "50000"
+          },
+          {
+            "ok": false,
+            "context": "価格",
+            "reason": "not_found"
+          },
+          {
+            "ok": true,
+            "context": "排気量",
+            "name": "HMIN",
+            "label": "1000",
+            "value": "1000"
+          },
+          {
+            "ok": true,
+            "context": "車検残",
+            "name": "SZAN",
+            "label": "１年以上",
+            "value": "12"
+          },
+          {
+            "ok": true,
+            "label": "ガソリン",
+            "name": "FUEL",
+            "value": "1",
+            "checked": true
+          },
+          {
+            "ok": true,
+            "label": "スマートキー",
+            "name": "OPTCD",
+            "value": "SMK1",
+            "checked": true
+          },
+          {
+            "ok": true,
+            "label": "バックカメラ",
+            "name": "OPTCD",
+            "value": "BMF1",
+            "checked": true
+          }
+        ]
+      },
+      "pages": []
+    },
+    {
+      "prefecture": "埼玉",
+      "setup": {
+        "ok": false,
+        "url": "https://www.carsensor.net/usedcar/saitama/index.html",
+        "steps": [
+          {
+            "ok": true,
+            "context": "走行距離",
+            "name": "SMAX",
+            "label": "5万Km",
+            "value": "50000"
+          },
+          {
+            "ok": false,
+            "context": "価格",
+            "reason": "not_found"
+          },
+          {
+            "ok": true,
+            "context": "排気量",
+            "name": "HMIN",
+            "label": "1000",
+            "value": "1000"
+          },
+          {
+            "ok": true,
+            "context": "車検残",
+            "name": "SZAN",
+            "label": "１年以上",
+            "value": "12"
+          },
+          {
+            "ok": true,
+            "label": "ガソリン",
+            "name": "FUEL",
+            "value": "1",
+            "checked": true
+          },
+          {
+            "ok": true,
+            "label": "スマートキー",
+            "name": "OPTCD",
+            "value": "SMK1",
+            "checked": true
+          },
+          {
+            "ok": true,
+            "label": "バックカメラ",
+            "name": "OPTCD",
+            "value": "BMF1",
+            "checked": true
+          }
+        ]
+      },
+      "pages": []
+    },
+    {
+      "prefecture": "神奈川",
+      "setup": {
+        "ok": false,
+        "url": "https://www.carsensor.net/usedcar/kanagawa/index.html",
+        "steps": [
+          {
+            "ok": true,
+            "context": "走行距離",
+            "name": "SMAX",
+            "label": "5万Km",
+            "value": "50000"
+          },
+          {
+            "ok": false,
+            "context": "価格",
+            "reason": "not_found"
+          },
+          {
+            "ok": true,
+            "context": "排気量",
+            "name": "HMIN",
+            "label": "1000",
+            "value": "1000"
+          },
+          {
+            "ok": true,
+            "context": "車検残",
+            "name": "SZAN",
+            "label": "１年以上",
+            "value": "12"
+          },
+          {
+            "ok": true,
+            "label": "ガソリン",
+            "name": "FUEL",
+            "value": "1",
+            "checked": true
+          },
+          {
+            "ok": true,
+            "label": "スマートキー",
+            "name": "OPTCD",
+            "value": "SMK1",
+            "checked": true
+          },
+          {
+            "ok": true,
+            "label": "バックカメラ",
+            "name": "OPTCD",
+            "value": "BMF1",
+            "checked": true
+          }
+        ]
+      },
+      "pages": []
+    },
+    {
+      "prefecture": "茨城",
+      "setup": {
+        "ok": false,
+        "url": "https://www.carsensor.net/usedcar/ibaraki/index.html",
+        "steps": [
+          {
+            "ok": true,
+            "context": "走行距離",
+            "name": "SMAX",
+            "label": "5万Km",
+            "value": "50000"
+          },
+          {
+            "ok": false,
+            "context": "価格",
+            "reason": "not_found"
+          },
+          {
+            "ok": true,
+            "context": "排気量",
+            "name": "HMIN",
+            "label": "1000",
+            "value": "1000"
+          },
+          {
+            "ok": true,
+            "context": "車検残",
+            "name": "SZAN",
+            "label": "１年以上",
+            "value": "12"
+          },
+          {
+            "ok": true,
+            "label": "ガソリン",
+            "name": "FUEL",
+            "value": "1",
+            "checked": true
+          },
+          {
+            "ok": true,
+            "label": "スマートキー",
+            "name": "OPTCD",
+            "value": "SMK1",
+            "checked": true
+          },
+          {
+            "ok": true,
+            "label": "バックカメラ",
+            "name": "OPTCD",
+            "value": "BMF1",
+            "checked": true
+          }
+        ]
+      },
+      "pages": []
+    }
+  ],
+  "result_url_count": 0,
+  "detail_count": 0,
+  "eligible_count": 0,
+  "eligible": []
+}
