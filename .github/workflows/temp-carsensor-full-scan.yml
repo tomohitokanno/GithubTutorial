@@ -1,0 +1,94 @@
+name: Temporary Carsensor full scan
+
+on:
+  push:
+    branches:
+      - temp-carsensor-full-scan-20260726
+    paths:
+      - carsensor-temp/config.json
+      - carsensor-temp/scan.py
+      - .github/workflows/temp-carsensor-full-scan.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temp-carsensor-full-scan-20260726
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out scan branch
+        uses: actions/checkout@v4
+        with:
+          ref: temp-carsensor-full-scan-20260726
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright beautifulsoup4 lxml
+          python -m playwright install --with-deps chromium
+
+      - name: Run live scan
+        run: |
+          cd carsensor-temp
+          python scan.py
+
+      - name: Build eligible-only result
+        if: always()
+        run: |
+          cd carsensor-temp
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          src = Path('output/result.json')
+          if not src.exists():
+              payload = {
+                  'fatal': True,
+                  'workflow_error': 'output/result.json was not created',
+                  'eligible_count': 0,
+                  'eligible': [],
+              }
+          else:
+              raw = json.loads(src.read_text(encoding='utf-8'))
+              payload = {
+                  key: raw.get(key)
+                  for key in (
+                      'scanned_at',
+                      'fatal',
+                      'criteria',
+                      'searches',
+                      'result_url_count',
+                      'detail_count',
+                      'eligible_count',
+                      'eligible',
+                  )
+              }
+          Path('output/eligible.json').write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2),
+              encoding='utf-8',
+          )
+          PY
+
+      - name: Commit scan results
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add carsensor-temp/output/result.json carsensor-temp/output/eligible.json
+          if git diff --cached --quiet; then
+            echo 'No result changes to commit.'
+          else
+            git commit -m 'Update temporary Carsensor scan result'
+            git push origin HEAD:temp-carsensor-full-scan-20260726
+          fi
