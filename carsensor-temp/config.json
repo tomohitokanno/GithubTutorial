@@ -1,0 +1,12 @@
+{
+  "prefectures": ["東京", "千葉", "埼玉", "神奈川", "茨城"],
+  "detail_concurrency": 3,
+  "body_price_max_man": 100,
+  "mileage_max_10k_km": 5.0,
+  "displacement_min_cc": 1000,
+  "engine": "ガソリン",
+  "back_camera": true,
+  "smart_key": true,
+  "inspection_min_ym": [2027, 8],
+  "requested_at": "2026-07-26T21:00:00+09:00"
+}
