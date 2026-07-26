@@ -8,13 +8,20 @@ on:
       - carsensor-temp/config.json
       - carsensor-temp/scan.py
       - .github/workflows/temp-carsensor-full-scan.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - carsensor-temp/config.json
+      - carsensor-temp/scan.py
+      - .github/workflows/temp-carsensor-full-scan.yml
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: temp-carsensor-full-scan-20260726
+  group: temp-carsensor-full-scan-20260726-${{ github.event.pull_request.number || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
